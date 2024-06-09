@@ -27,13 +27,19 @@ const PostDetails = () => {
       {record ? (
         <div className="news-wrapper">
           <div className="container">
+            <p className="date">{record.created_at}</p>
             <h1>{record.title}</h1>
-            <img src={record.image} alt={record.title ? record.title : ""} />
+            <img
+              className="news_primary_image"
+              src={record.image}
+              alt={record.title ? record.title : ""}
+            />
             {record.description && (
               <div
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(record.description),
                 }}
+                className="description"
               ></div>
             )}
           </div>

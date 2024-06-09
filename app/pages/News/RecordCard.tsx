@@ -18,6 +18,8 @@ const RecordCard = ({
 
   const descriptionText = extractTextFromDescription(sanitizedDescriptionHTML);
 
+  const shortDescription = descriptionText.slice(0, 167) + "...";
+
   return (
     <div className="record-card">
       <img
@@ -31,7 +33,7 @@ const RecordCard = ({
 
       <div
         className="record-card__description"
-        dangerouslySetInnerHTML={{ __html: descriptionText }}
+        dangerouslySetInnerHTML={{ __html: shortDescription }}
       />
       <p className="record-card__date">{created_at}</p>
     </div>

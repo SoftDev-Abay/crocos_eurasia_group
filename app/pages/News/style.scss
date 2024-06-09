@@ -15,7 +15,7 @@
   }
 
   p {
-    width: 522px;
+    max-width: 522px;
 
     font-family: Inter;
     font-size: 18px;
@@ -23,15 +23,87 @@
     line-height: 32px;
     color: rgba(51, 51, 51, 0.87);
   }
+
+  @media (max-width: 1400px) {
+    gap: 16px;
+
+    h3 {
+      font-size: 48px;
+      line-height: 59px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+  @media (max-width: 576px) {
+    gap: 8px;
+    margin-bottom: 24px;
+
+    h3 {
+      font-size: 32px;
+      line-height: 38.4px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+  @media (max-width: 360px) {
+    h3 {
+      font-size: 28px;
+      line-height: 33.6px;
+    }
+  }
 }
 
-.filters {
+.filters-wrapper {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+
+  .filter_button {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    padding: 8px 20px;
+
+    text-transform: none;
+    font-weight: 500;
+    font-family: Inter;
+
+    background: none;
+    color: rgba(51, 51, 51, 1);
+    border-color: rgba(51, 51, 51, 1);
+
+    &.active {
+      background: rgba(110, 182, 60, 1);
+      color: rgba(255, 255, 255, 1);
+      border-color: rgba(110, 182, 60, 1);
+
+      &:hover {
+        background: rgba(110, 182, 60, 1);
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+
+    &:hover {
+      background: rgba(110, 182, 60, 1);
+      color: rgba(255, 255, 255, 1);
+      border-color: rgba(110, 182, 60, 1);
+    }
+  }
+
+  @media (max-width: 576px) {
+    margin-bottom: 24px;
+  }
 }
 
 .records-container {
-  margin-top: 50px;
+  margin-bottom: 64px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 25px;
@@ -78,6 +150,87 @@
       line-height: 30px;
 
       color: rgba(51, 51, 51, 0.74);
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .records-container {
+    .record-card {
+      .record-card__image {
+        height: 342px;
+      }
+    }
+  }
+}
+@media (max-width: 1400px) {
+  .records-container {
+    .record-card {
+      .record-card__image {
+        height: 300px;
+      }
+    }
+  }
+}
+@media (max-width: 1160px) {
+  .records-container {
+    .record-card {
+      .record-card__image {
+        height: 250px;
+      }
+    }
+  }
+}
+@media (max-width: 1124px) {
+  .records-container {
+    grid-template-columns: repeat(2, 1fr);
+
+    .record-card {
+      .record-card__image {
+        height: 360px;
+      }
+    }
+  }
+}
+
+@media (max-width: 868px) {
+  // wasnt in the design but otherwize it height would be too big for the card
+  .records-container {
+    .record-card {
+      .record-card__image {
+        height: 250px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .records-container {
+    .record-card {
+      .record-card__image {
+        height: 186px;
+      }
+
+      .record-card__title {
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      .record-card__description {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
+  }
+}
+@media (max-width: 360px) {
+  .records-container {
+    grid-template-columns: 1fr;
+    .record-card {
+      .record-card__image {
+        height: 156px;
+      }
     }
   }
 }
