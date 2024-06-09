@@ -1,0 +1,22 @@
+.language-toggle {
+  background: rgba(51, 51, 51, 0.1);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0px;
+  background: rgba(51, 51, 51, 0.1);
+
+  cursor: pointer;
+  .text {
+    font-family: PT Root UI;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: rgba(51, 51, 51, 0.74);
+  }
+}

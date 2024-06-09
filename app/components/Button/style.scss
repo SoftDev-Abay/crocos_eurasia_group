@@ -1,0 +1,26 @@
+.btn {
+  width: 246px;
+  height: 60px;
+  padding: 18px 21px 18px 24px;
+  gap: 8px;
+  border-radius: 50px;
+  border: 2px 0px 0px 0px;
+  opacity: 0px;
+
+  border: 2px solid rgba(110, 182, 60, 1);
+  background: none;
+
+  color: rgba(110, 182, 60, 1);
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.03999999910593033px;
+
+  cursor: pointer;
+  //   hover
+  &:hover {
+    background-color: rgba(110, 182, 60, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+}

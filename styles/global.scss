@@ -1,0 +1,15 @@
+// if this is present then it deletes spacing for html coming from backend
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+.highlighted {
+  color: rgba(110, 182, 60, 1);
+}
