@@ -22,7 +22,7 @@ const HeroSection = ({ title, description, image }: HeroSectionProps) => {
           <div
             className="description"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(description),
+              __html: description,
             }}
           />
           <Button

@@ -7,19 +7,7 @@ import { MissionsMain } from "@/app/constants/MissionsTypes";
 
 import HeroSection from "@/app/components/Sections/Hero/HeroSection";
 
-const GoalHeroSection = () => {
-  const [data, setData] = useState<MissionsMain | null>(null);
-
-  useEffect(() => {
-    getMissionsMain()
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
+const GoalHeroSection = ({ data }: { data: MissionsMain | null }) => {
   return (
     <>
       {data ? (

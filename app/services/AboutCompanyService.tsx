@@ -6,32 +6,44 @@ import {
   AboutCompanySolution,
 } from "../constants/AboutTypes";
 
-export const getAboutCompanyMain = async () => {
-  try {
-    const response = await http.get("/about-companies/main");
-    return response.data.data as AboutCompanyMain;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+export const getAboutCompanyMain = (Language: string) => {
+  // try {
+  //   const response = await http.get("/about-companies/main");
+  //   return response.data.data as AboutCompanyMain;
+  // } catch (error) {
+  //   console.error(error);
+  //   throw error;
+  // }
+
+  return http.get("/about-companies/main", {
+    headers: { "Accept-Language": Language },
+  });
 };
 
-export const getAboutCompanyDigits = async () => {
-  try {
-    const response = await http.get("/about-companies/digits");
-    return response.data.data as AboutCompanyDigit[];
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+export const getAboutCompanyDigits = (Language: string) => {
+  // try {
+  //   const response = await http.get("/about-companies/digits");
+  //   return response.data.data as AboutCompanyDigit[];
+  // } catch (error) {
+  //   console.error(error);
+  //   throw error;
+  // }
+
+  return http.get("/about-companies/digits", {
+    headers: { "Accept-Language": Language },
+  });
 };
 
-export const getAboutCompanySolutions = async () => {
-  try {
-    const response = await http.get("/about-companies/unique-solutions");
-    return response.data.data as AboutCompanySolution[];
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+export const getAboutCompanySolutions = (Language: string) => {
+  // try {
+  //   const response = await http.get("/about-companies/unique-solutions");
+  //   return response.data.data as AboutCompanySolution[];
+  // } catch (error) {
+  //   console.error(error);
+  //   throw error;
+  // }
+
+  return http.get("/about-companies/unique-solutions", {
+    headers: { "Accept-Language": Language },
+  });
 };

@@ -4,7 +4,7 @@ import "./style.scss";
 import DOMPurify from "dompurify";
 import { extractTextFromDescription } from "@/app/utils/helpers";
 import Link from "next/link";
-
+import HtmlRenderer from "@/app/components/HtmlRenderer/HtmlRenderer";
 const RecordCard = ({
   title,
   image,
@@ -12,11 +12,8 @@ const RecordCard = ({
   created_at,
   id,
 }: WhatsNewRecord) => {
-  const sanitizedDescriptionHTML = DOMPurify.sanitize(
-    description ? description : ""
-  );
 
-  const descriptionText = extractTextFromDescription(sanitizedDescriptionHTML);
+  const descriptionText = extractTextFromDescription(description ?? "");
 
   const shortDescription = descriptionText.slice(0, 167) + "...";
 
@@ -31,10 +28,7 @@ const RecordCard = ({
         <h2 className="record-card__title">{title}</h2>
       </Link>
 
-      <div
-        className="record-card__description"
-        dangerouslySetInnerHTML={{ __html: shortDescription }}
-      />
+      <HtmlRenderer unsafeHtml={shortDescription} className="record-card__description" />
       <p className="record-card__date">{created_at}</p>
     </div>
   );

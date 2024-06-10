@@ -6,19 +6,7 @@ import "./style.scss";
 import { AboutCompanyDigit } from "@/app/constants/AboutTypes";
 import PointsSection from "@/app/components/Sections/Points/PointsSection";
 
-const AboutDigitsSection = () => {
-  const [data, setData] = useState<AboutCompanyDigit[] | null>(null);
-
-  useEffect(() => {
-    getAboutCompanyDigits()
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
+const AboutDigitsSection = ({ data }: { data: AboutCompanyDigit[] | null }) => {
   return (
     <div>{data ? <PointsSection points={data} /> : <div>Loading...</div>}</div>
   );

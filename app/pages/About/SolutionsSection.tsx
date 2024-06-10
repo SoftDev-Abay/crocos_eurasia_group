@@ -5,19 +5,11 @@ import { getAboutCompanySolutions } from "@/app/services/AboutCompanyService";
 import "./style.scss";
 import { AboutCompanySolution } from "@/app/constants/AboutTypes";
 
-const SolutionsSection = () => {
-  const [data, setData] = useState<AboutCompanySolution[] | null>(null);
-
-  useEffect(() => {
-    getAboutCompanySolutions()
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
+const SolutionsSection = ({
+  data,
+}: {
+  data: AboutCompanySolution[] | null;
+}) => {
   return (
     <div>
       {data ? (

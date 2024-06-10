@@ -4,24 +4,40 @@ import { getWhatsNewRecord } from "@/app/services/WhatsNewRecordsService";
 import { WhatsNewRecord } from "@/app/constants/WhatsNewRecordTypes";
 import DOMPurify from "dompurify";
 import "./style.scss";
-interface PostDetailsProps {
-  record: WhatsNewRecord;
-}
+import HtmlRenderer from "@/app/components/HtmlRenderer/HtmlRenderer";
+import { GetServerSideProps } from "next";
 
-const PostDetails = () => {
-  const [record, setRecord] = useState<WhatsNewRecord | null>(null);
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  let recordData;
 
-  useEffect(() => {
-    getWhatsNewRecord(1)
-      .then((data) => {
-        console.log(data);
-        setRecord(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  try {
+    const { slug } = context.params as { slug: string };
 
+    const response = await getWhatsNewRecord(
+      Number(slug),
+      context.locale ?? "en"
+    );
+
+    recordData = response?.data?.data;
+
+    console.log("recordData", recordData);
+
+    return {
+      props: {
+        record: recordData,
+      },
+    };
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    return {
+      props: {
+        record: null,
+      },
+    };
+  }
+};
+
+const PostDetails = ({ record }: { record: WhatsNewRecord }) => {
   return (
     <Wrapper>
       {record ? (
@@ -35,12 +51,10 @@ const PostDetails = () => {
               alt={record.title ? record.title : ""}
             />
             {record.description && (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(record.description),
-                }}
+              <HtmlRenderer
+                unsafeHtml={record.description}
                 className="description"
-              ></div>
+              />
             )}
           </div>
         </div>
