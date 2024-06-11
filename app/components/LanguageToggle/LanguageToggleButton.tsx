@@ -1,7 +1,6 @@
 import React from "react";
 import { useTransition } from "react";
 import { useRouter } from "next/router";
-// import { useLocale } from "next-intl";
 import "./style.scss";
 
 const LanguageToggleButton = () => {
@@ -10,22 +9,19 @@ const LanguageToggleButton = () => {
   const localeActive = router.locale;
   const languages = ["ru", "en"];
 
-  console.log("localeActive", localeActive);
-
   const onLanguageChange = () => {
-    if (isPending) {
-      return;
-    }
+    if (isPending) return;
 
-    const currentLanguageIndex = languages.indexOf(
-      localeActive ? localeActive : "en"
-    );
-    const nextLanguageIndex = currentLanguageIndex + 1;
+    const currentLanguageIndex = languages.indexOf(localeActive || "ru");
+    const nextLanguageIndex = (currentLanguageIndex + 1) % languages.length;
+    const nextLocale = languages[nextLanguageIndex];
 
     startTransition(() => {
-      router.push(router.pathname, undefined, {
-        locale: languages[nextLanguageIndex],
-      });
+      // Construct the URL preserving query parameters and dynamic segments
+      const pathname = router.pathname; // Gets the current route with dynamic segments like `[id]`
+      const query = { ...router.query }; // Preserve other query parameters and update the locale
+
+      router.push({ pathname, query }, undefined, { locale: nextLocale });
     });
   };
 
