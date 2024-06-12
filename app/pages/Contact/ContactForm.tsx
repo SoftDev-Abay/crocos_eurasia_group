@@ -11,6 +11,8 @@ import { sendContactForm } from "@/app/services/ContactUsService";
 import ContactFormSchema, { ContactFormType } from "./Validation";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import "./style.scss";
+
 const defaultValues = {
   name: "",
   email: "",
@@ -73,7 +75,9 @@ const ContactForm = () => {
           />
         </div>
 
-        <Button onClick={handleSubmit(onSubmit)}>Отправить</Button>
+        <Button className="submit-button" onClick={handleSubmit(onSubmit)}>
+          Отправить
+        </Button>
       </form>
     </>
   );

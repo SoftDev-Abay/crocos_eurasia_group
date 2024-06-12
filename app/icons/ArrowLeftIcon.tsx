@@ -1,6 +1,6 @@
 import React from "react";
 import { IconProps } from "../constants/IconTypes";
-const FacebookIcon = ({
+const ArrowLeftIcon = ({
   className = "",
   width = 32,
   height = 32,
@@ -11,12 +11,12 @@ const FacebookIcon = ({
       className={className}
       width={width}
       height={height}
-      viewBox="0 0 14 14"
+      viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9.33187 2.32459H10.61V0.0985836C10.3895 0.06825 9.63112 0 8.74796 0C6.90521 0 5.64288 1.15909 5.64288 3.28941V5.25H3.60938V7.7385H5.64288V14H8.13604V7.73909H10.0873L10.397 5.25059H8.13546V3.53616C8.13605 2.81691 8.32971 2.32459 9.33187 2.32459Z"
+        d="M6 9.53674e-07L7.06875 1.05L2.86875 5.25L12 5.25V6.75L2.86875 6.75L7.06875 10.95L6 12L9.53674e-07 6L6 9.53674e-07Z"
         fill={fill}
         fill-opacity="0.74"
       />
@@ -24,4 +24,4 @@ const FacebookIcon = ({
   );
 };
 
-export default FacebookIcon;
+export default ArrowLeftIcon;

@@ -3,7 +3,10 @@ import { useTransition } from "react";
 import { useRouter } from "next/router";
 import "./style.scss";
 
-const LanguageToggleButton = () => {
+const LanguageToggleButton: React.FC<React.HTMLProps<HTMLDivElement>> = ({
+  className,
+  ...props
+}) => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const localeActive = router.locale;
@@ -26,7 +29,11 @@ const LanguageToggleButton = () => {
   };
 
   return (
-    <div className="language-toggle" onClick={onLanguageChange}>
+    <div
+      className={`language-toggle ${className}`}
+      onClick={onLanguageChange}
+      {...props}
+    >
       <span className="text">{localeActive === "ru" ? "Ру" : "En"}</span>
     </div>
   );
