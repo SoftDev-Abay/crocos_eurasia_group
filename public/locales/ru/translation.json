@@ -1,0 +1,79 @@
+{
+  "wrapper": {
+    "navbar": {
+      "go_back_button": "На главную"
+    },
+    "footer": {
+      "copyright": "© Eurasia Group 2022"
+    },
+    "root_modal": {
+      "nav": {
+        "about": "О нас",
+        "goal": "Цель",
+        "whats_new": "Что нового"
+      },
+      "button_contact_us": "Связаться с нами",
+      "copyright": "© Eurasia Group 2022"
+    }
+  },
+  "components": {
+    "sections": {
+      "hero": {
+        "contact_button": "Связаться с нами"
+      },
+      "points": {
+        "title": {
+          "first": "Мы в",
+          "second": "цифрах"
+        }
+      }
+    }
+  },
+  "pages": {
+    "about": {
+      "solutions": {
+        "header": {
+          "title": "УНИКАЛЬНЫЕ РЕШЕНИЯ",
+          "description": "За эти годы мы создали развитую сеть по обеспечению фермеров уникальными комплексными решениями в сельском хозяйстве Казахстана и Кыргызстана"
+        }
+      }
+    },
+    "news": {
+      "header": {
+        "title": "Что нового",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown"
+      },
+      "filters": {
+        "partners": "Новости партнеров",
+        "agriculture": "Новости в сельском хозяйстве"
+      }
+    },
+    "contact_us": {
+      "contact_form": {
+        "confidentiality": {
+          "agree": "Я соглашаюсь",
+          "highlighted": "с политикой конфиденциальности"
+        },
+        "button_submit": "Отправить",
+        "inputs": {
+          "name": {
+            "placeholder": "Имя",
+            "label": "Имя",
+            "error": "Пожалуйста, введите ваше имя"
+          },
+          "email": {
+            "placeholder": "Email",
+            "label": "Email",
+            "error": "Пожалуйста, введите ваш email"
+          },
+          "phone": {
+            "placeholder": "Телефон",
+            "label": "Телефон",
+            "error": "Пожалуйста, введите ваш телефон"
+          }
+        },
+        "header": "Связаться с нами"
+      }
+    }
+  }
+}

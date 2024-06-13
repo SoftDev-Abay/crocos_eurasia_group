@@ -5,6 +5,7 @@ import MenuIcon from "../../icons/MenuIcon";
 import LanguageToggleButton from "@/app/components/LanguageToggle/LanguageToggleButton";
 import Modal from "@/app/components/Modal/Modal";
 import RootModalContent from "./RootModalContent";
+import { useTranslations } from "next-intl";
 const Navbar = () => {
   const [isShow, setIsShow] = React.useState(false);
 
@@ -15,6 +16,8 @@ const Navbar = () => {
   const handleOpen = () => {
     setIsShow(true);
   };
+
+  const t = useTranslations();
 
   return (
     <>

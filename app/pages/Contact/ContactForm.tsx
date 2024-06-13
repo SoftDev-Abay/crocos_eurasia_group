@@ -10,7 +10,7 @@ import { sendContactForm } from "@/app/services/ContactUsService";
 
 import ContactFormSchema, { ContactFormType } from "./Validation";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import { useTranslations } from "next-intl";
 import "./style.scss";
 
 const defaultValues = {
@@ -21,6 +21,8 @@ const defaultValues = {
 };
 
 const ContactForm = () => {
+  const t = useTranslations();
+
   const { register, handleSubmit, reset, control, setValue } =
     useForm<ContactFormType>({
       defaultValues,
@@ -50,12 +52,20 @@ const ContactForm = () => {
     <>
       <form>
         <div className="inputs-wrapper">
-          <FormInputText control={control} name="name" label="Имя" />
-          <FormInputText control={control} name="email" label="Email" />
+          <FormInputText
+            control={control}
+            name="name"
+            label={t("pages.contact_us.contact_form.inputs.name.label")}
+          />
+          <FormInputText
+            control={control}
+            name="email"
+            label={t("pages.contact_us.contact_form.inputs.email.label")}
+          />
           <FormInputPhone
             control={control}
             name="phone_number"
-            label="Телефон"
+            label={t("pages.contact_us.contact_form.inputs.phone.label")}
           />
 
           <FormInputCheckbox
@@ -63,12 +73,15 @@ const ContactForm = () => {
             control={control}
             label={
               <p>
-                Я соглашаюсь{" "}
+                {t("pages.contact_us.contact_form.confidentiality.agree") + " "}
+
                 <span
                   className="highlighted"
                   style={{ textDecoration: "underline" }}
                 >
-                  с политикой конфиденциальности
+                  {t(
+                    "pages.contact_us.contact_form.confidentiality.highlighted"
+                  )}
                 </span>
               </p>
             }
@@ -76,7 +89,7 @@ const ContactForm = () => {
         </div>
 
         <Button className="submit-button" onClick={handleSubmit(onSubmit)}>
-          Отправить
+          {t("pages.contact_us.contact_form.button_submit")}
         </Button>
       </form>
     </>

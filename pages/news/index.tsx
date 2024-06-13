@@ -35,14 +35,20 @@ export const getServerSideProps: GetServerSideProps<{
   totalPages: number;
 }> = async (context) => {
   const page = Number(context.query.page) || 1; // Get page number from query
-  const locale = context.locale || "en"; // Get locale from context
+  const locale = context.locale || "ru"; // Get locale from context
 
   try {
     const response = await getWhatsNewRecords(page, locale); // Fetch records using the service
+
+    const messages = (
+      await import(`../../public/locales/${locale}/translation.json`)
+    ).default;
+
     return {
       props: {
         records: response.data, // Assuming this is the correct data structure
         totalPages: response.meta.last_page, // Assuming meta contains pagination info
+        messages,
       },
     };
   } catch (error) {

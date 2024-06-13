@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.scss";
 import PointBox from "./PointBox";
+import { useTranslations } from "next-intl";
 
 interface Point {
   id: number;
@@ -14,11 +15,16 @@ interface PointsSectionProps {
 }
 
 const PointsSection = ({ points }: PointsSectionProps) => {
+  const t = useTranslations();
+
   return (
     <section className="points-section">
       <h3>
-        <span>Мы в</span>
-        <span className="highlighted"> цифрах</span>
+        <span>{t("components.sections.points.title.first")}</span>
+        <span className="highlighted">
+          {" "}
+          {t("components.sections.points.title.second")}
+        </span>
       </h3>
       <div className="content">
         {points.map((item, index) => (

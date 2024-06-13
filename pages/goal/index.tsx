@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import ValuesSection from "@/app/pages/Goal/ValuesSection";
 import GoalHeroSection from "@/app/pages/Goal/GoalHeroSection";
 import Wrapper from "@/app/pages/Wrapper/Wrapper";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticPropsContext } from "next";
 import {
   getMissionsMain,
   getMissionsValues,
@@ -19,10 +19,16 @@ export async function getServerSideProps({ locale }: { locale: string }) {
     const missionValuesResponse = await getMissionsValues(locale ?? "ru");
     missionValuesData = missionValuesResponse?.data?.data;
 
+    // Load the locale messages
+    const messages = (
+      await import(`../../public/locales/${locale}/translation.json`)
+    ).default;
+
     return {
       props: {
         missionGoalData,
         missionValuesData,
+        messages,
       },
     };
   } catch (e) {

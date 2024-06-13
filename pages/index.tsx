@@ -33,15 +33,16 @@ export async function getServerSideProps({ locale }: { locale: string }) {
     );
     aboutCompanySolutionsData = aboutCompanySolutionsResponse?.data?.data;
 
-    console.log(aboutCompanyMainData);
-    console.log(aboutCompanyDigitsData);
-    console.log(aboutCompanySolutionsData);
+    const messages = (
+      await import(`../public/locales/${locale}/translation.json`)
+    ).default;
 
     return {
       props: {
         aboutCompanyMainData,
         aboutCompanyDigitsData,
         aboutCompanySolutionsData,
+        messages,
       },
     };
   } catch (e) {

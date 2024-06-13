@@ -1,14 +1,14 @@
 @use "../../../styles/main.scss" as c;
 
-.layout-wrapper {
+.contact_layout-wrapper {
   background-color: c.$color-secondary;
 
-  .layout {
+  .contact_layout {
     position: relative;
     margin: 0 auto;
     background-color: c.$color-secondary;
 
-    .layout-content {
+    .contact_layout-content {
       min-height: 100vh;
     }
 

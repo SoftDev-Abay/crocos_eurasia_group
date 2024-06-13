@@ -4,23 +4,22 @@ import React, { useEffect, useState } from "react";
 import { getAboutCompanySolutions } from "@/app/services/AboutCompanyService";
 import "./style.scss";
 import { AboutCompanySolution } from "@/app/constants/AboutTypes";
+import { useTranslations } from "next-intl";
 
 const SolutionsSection = ({
   data,
 }: {
   data: AboutCompanySolution[] | null;
 }) => {
+  const t = useTranslations();
+
   return (
     <div>
       {data ? (
         <section className="solutions-section">
           <div className="heading">
-            <h3>Уникальные решения</h3>
-            <p>
-              За эти годы мы создали развитую сеть по обеспечению фермеров
-              уникальными комплексными решениями в сельском хозяйстве Казахстана
-              и Кыргызстана
-            </p>
+            <h3>{t("pages.about.solutions.header.title")}</h3>
+            <p>{t("pages.about.solutions.header.description")}</p>
           </div>
           <div className="content">
             {data.map((item, index) => (

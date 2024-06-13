@@ -3,7 +3,7 @@ import Button from "../../Button/Button";
 import ArrowOutwardIcon from "../../../icons/ArrowOutwardIcon";
 import "./style.scss";
 import DOMPurify from "dompurify";
-
+import { useTranslations } from "next-intl";
 interface HeroSectionProps {
   title: string;
   description: string;
@@ -11,6 +11,8 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ title, description, image }: HeroSectionProps) => {
+  const t = useTranslations();
+
   return (
     <div className="hero-section">
       <div className="container">
@@ -29,7 +31,7 @@ const HeroSection = ({ title, description, image }: HeroSectionProps) => {
             className="button"
             onClick={() => console.log("Button clicked")}
           >
-            <span>Contact Us</span>
+            <span>{t("components.sections.hero.contact_button")}</span>
             <ArrowOutwardIcon />
           </Button>
         </div>

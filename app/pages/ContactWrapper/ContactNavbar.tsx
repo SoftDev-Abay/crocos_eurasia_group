@@ -7,7 +7,7 @@ import Modal from "@/app/components/Modal/Modal";
 import RootModalContent from "./RootModalContent";
 import Button from "@/app/components/Button/Button";
 import ArrowLeftIcon from "@/app/icons/ArrowLeftIcon";
-
+import { useTranslations } from "next-intl";
 const ContactNavbar = () => {
   const [isShow, setIsShow] = React.useState(false);
 
@@ -18,6 +18,8 @@ const ContactNavbar = () => {
   const handleOpen = () => {
     setIsShow(true);
   };
+
+  const t = useTranslations();
 
   return (
     <>
@@ -40,7 +42,7 @@ const ContactNavbar = () => {
         <div className="navbar-second-part">
           <Button className="button-content">
             <ArrowLeftIcon width={12} height={12} fill="#FFFFFFBD" />
-            <span>На главную</span>
+            <span>{t("wrapper.navbar.go_back_button")}</span>
           </Button>
           <LanguageToggleButton />
         </div>

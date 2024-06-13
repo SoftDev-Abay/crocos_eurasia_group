@@ -12,6 +12,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   try {
     const { slug } = context.params as { slug: string };
+    const locale = context.locale || "ru";
 
     const response = await getWhatsNewRecord(
       Number(slug),
@@ -20,11 +21,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     recordData = response?.data?.data;
 
-    console.log("recordData", recordData);
+    const messages = (
+      await import(`../../public/locales/${locale}/translation.json`)
+    ).default;
 
     return {
       props: {
         record: recordData,
+        messages,
       },
     };
   } catch (error) {

@@ -8,8 +8,12 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import ContactForm from "@/app/pages/Contact/ContactForm";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
+import { GetStaticPropsContext } from "next";
 
 const ContactUs = () => {
+  const t = useTranslations();
+
   const [rendered, setRendered] = useState(false);
   useEffect(() => {
     setRendered(true);
@@ -22,7 +26,7 @@ const ContactUs = () => {
         <div className="contact-us-page">
           <div className="form-wrapper">
             <div className="form-container">
-              <h1>Связаться с нами</h1>
+              <h1>{t("pages.contact_us.contact_form.header")}</h1>
               <ContactForm />
             </div>
           </div>
@@ -34,5 +38,15 @@ const ContactUs = () => {
     );
   return null;
 };
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (
+        await import(`../../public/locales/${locale}/translation.json`)
+      ).default,
+    },
+  };
+}
 
 export default ContactUs;

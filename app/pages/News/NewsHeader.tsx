@@ -1,15 +1,14 @@
 import React from "react";
 import "./style.scss";
+import { useTranslations } from "next-intl";
 
 const NewsHeader = () => {
+  const t = useTranslations();
+
   return (
     <div className="header">
-      <h3>Что нового</h3>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown
-      </p>
+      <h3>{t("pages.news.header.title")}</h3>
+      <p>{t("pages.news.header.description")}</p>
     </div>
   );
 };
