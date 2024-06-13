@@ -12,6 +12,8 @@ import ContactFormSchema, { ContactFormType } from "./Validation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslations } from "next-intl";
 import "./style.scss";
+import { AxiosError } from "axios";
+import { toast } from "react-toastify";
 
 const defaultValues = {
   name: "",
@@ -23,10 +25,10 @@ const defaultValues = {
 const ContactForm = () => {
   const t = useTranslations();
 
-  const { register, handleSubmit, reset, control, setValue } =
+  const { register, handleSubmit, reset, control, setValue, setError } =
     useForm<ContactFormType>({
       defaultValues,
-      resolver: yupResolver(ContactFormSchema),
+      // resolver: yupResolver(ContactFormSchema),
     });
 
   const onSubmit = async (data: ContactFormType) => {
@@ -44,7 +46,28 @@ const ContactForm = () => {
       alert("Форма отправлена");
       reset();
     } catch (error) {
-      console.error(error);
+      if (
+        error instanceof AxiosError &&
+        error.response?.data &&
+        error.response?.data.errors
+      ) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+
+        const temp = Object.values(error.response.data.errors);
+
+        // alert(
+        //   error.response.data.errors[Object.keys(error.response.data.errors)[0]]
+        // );
+        toast.error(
+          `${
+            error.response.data.errors[
+              Object.keys(error.response.data.errors)[0]
+            ]
+          }`
+        );
+      }
     }
   };
 
