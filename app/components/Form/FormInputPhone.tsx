@@ -2,6 +2,7 @@ import React from "react";
 import { TextField } from "@mui/material";
 import InputMask from "react-input-mask";
 import { Controller } from "react-hook-form";
+import { useTranslations } from "next-intl";
 
 type FormInputProps = {
   name: string;
@@ -10,6 +11,7 @@ type FormInputProps = {
 };
 
 const FormInputPhone = ({ name, control, label }: FormInputProps) => {
+  const t = useTranslations();
   return (
     <Controller
       name={name}
@@ -34,7 +36,11 @@ const FormInputPhone = ({ name, control, label }: FormInputProps) => {
               variant="standard"
               InputLabelProps={{ shrink: true }}
               placeholder="+7 (___) ___-__-__"
-              helperText={error ? error.message : null}
+              helperText={
+                error
+                  ? t(`pages.contact_us.contact_form.errors.${error.message}`)
+                  : null
+              }
               error={!!error}
             />
           )}

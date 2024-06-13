@@ -5,17 +5,21 @@ import { object, string, number, date, InferType, boolean } from "yup";
 const phoneRegExp = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
 
 let ContactFormSchema = object({
-  name: string().min(2).max(50).required(),
-  email: string().email().min(5).max(50).required(),
+  name: string()
+    .min(2, "minField2")
+    .max(50, "maxField50")
+    .required("requiredField"),
+  email: string()
+    .email("email_invalid")
+    .min(5, "minField5")
+    .max(50, "maxField50")
+    .required("requiredField"),
   phone_number: string()
-    .matches(
-      phoneRegExp,
-      "Phone number is not valid. Please use the following format: +7 (123) 456-78-90"
-    )
-    .required(),
+    .matches(phoneRegExp, "phone")
+    .required("requiredField"),
   agree: boolean()
-    .test("is-true", "You must agree to continue", (value) => value === true)
-    .required(),
+    .test("is-true", "agree", (value) => value === true)
+    .required("requiredField"),
 });
 
 export type ContactFormType = InferType<typeof ContactFormSchema>;

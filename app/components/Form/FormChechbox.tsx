@@ -6,7 +6,6 @@ import {
   FormLabel,
 } from "@mui/material";
 import { Controller, useController } from "react-hook-form";
-import FormHelperText from "@mui/material/FormHelperText";
 
 type FormInputCheckboxProps = {
   name: string;
@@ -19,10 +18,6 @@ export const FormInputCheckbox: React.FC<FormInputCheckboxProps> = ({
   control,
   label,
 }) => {
-  const {
-    fieldState: { error },
-  } = useController({ name, control });
-
   return (
     <>
       <FormControl size="small" variant="outlined">
