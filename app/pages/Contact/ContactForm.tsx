@@ -28,7 +28,7 @@ const ContactForm = () => {
   const { register, handleSubmit, reset, control, setValue, setError } =
     useForm<ContactFormType>({
       defaultValues,
-      // resolver: yupResolver(ContactFormSchema),
+      resolver: yupResolver(ContactFormSchema),
     });
 
   const onSubmit = async (data: ContactFormType) => {
