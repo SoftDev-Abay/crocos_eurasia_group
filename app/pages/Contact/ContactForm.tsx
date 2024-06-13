@@ -57,9 +57,7 @@ const ContactForm = () => {
 
         const temp = Object.values(error.response.data.errors);
 
-        // alert(
-        //   error.response.data.errors[Object.keys(error.response.data.errors)[0]]
-        // );
+
         toast.error(
           `${
             error.response.data.errors[
