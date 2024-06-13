@@ -10,7 +10,7 @@ let ContactFormSchema = object({
     .max(50, "maxField50")
     .required("requiredField"),
   email: string()
-    .email("email_invalid")
+    .email("email")
     .min(5, "minField5")
     .max(50, "maxField50")
     .required("requiredField"),
