@@ -1,6 +1,6 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { TextField } from "@mui/material";
-import InputMask from "react-input-mask";
+import InputMask, { Props as InputMaskProps } from "react-input-mask";
 import { Controller } from "react-hook-form";
 import { useTranslations } from "next-intl";
 
@@ -8,6 +8,18 @@ type FormInputProps = {
   name: string;
   control: any;
   label: string;
+};
+
+// Define the corrected InputMask component
+type TInputMaskCorrect = Omit<InputMaskProps, "children"> & {
+  children?: (inputProps: any) => JSX.Element;
+};
+const InputMaskCorrect: React.FC<TInputMaskCorrect> = ({
+  children,
+  ...props
+}) => {
+  const child = children as ReactNode;
+  return <InputMask {...props}>{child}</InputMask>;
 };
 
 const FormInputPhone = ({ name, control, label }: FormInputProps) => {
@@ -21,13 +33,10 @@ const FormInputPhone = ({ name, control, label }: FormInputProps) => {
         fieldState: { error },
         formState,
       }) => (
-        <InputMask
+        <InputMaskCorrect
           mask="+7 (999) 999-99-99"
           value={value}
           onChange={onChange}
-          disabled={false}
-          clearMaskOnLostFocus={false}
-          error={!!error}
         >
           {() => (
             <TextField
@@ -44,7 +53,7 @@ const FormInputPhone = ({ name, control, label }: FormInputProps) => {
               error={!!error}
             />
           )}
-        </InputMask>
+        </InputMaskCorrect>
       )}
     />
   );

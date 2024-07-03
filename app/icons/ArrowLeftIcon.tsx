@@ -18,7 +18,7 @@ const ArrowLeftIcon = ({
       <path
         d="M6 9.53674e-07L7.06875 1.05L2.86875 5.25L12 5.25V6.75L2.86875 6.75L7.06875 10.95L6 12L9.53674e-07 6L6 9.53674e-07Z"
         fill={fill}
-        fill-opacity="0.74"
+        fillOpacity="0.74"
       />
     </svg>
   );

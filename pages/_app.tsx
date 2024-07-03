@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <AppCacheProvider {...pageProps}>
       <NextIntlClientProvider
         locale={router.locale}
-        // timeZone="Europe/Vienna"
+        timeZone="Europe/Vienna"
         messages={pageProps.messages}
       >
         <ToastContainer />
