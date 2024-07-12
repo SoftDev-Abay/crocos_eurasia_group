@@ -1,40 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Eurasia group is a comprehensive webpage providing detailed information about the company in both Russian and English. This project highlights my ability to create multilingual applications that cater to a diverse audience.
 
-## Getting Started
+The site features essential company statistics, general information, and clearly defined goals, offering visitors a complete understanding of the company's mission and achievements. Additionally, it includes recent posts with pagination, allowing users to easily navigate through the latest updates and announcements.
 
-First, run the development server:
+A standout feature of the site is the 'Contact Us' form, which is implemented with React Form Hook and Yup for thorough validation. This ensures that all submissions are accurate and complete, enhancing user interaction and engagement.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The project follows a well-structured approach, utilizing services, utilities, and page routing. Next.js is used for server-side rendering (SSR), ensuring fast load times and improved SEO. The design is fully responsive, providing a seamless experience across all devices, from desktops to smartphones.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For the UI, the MUI library is employed to deliver consistent and visually appealing input elements. The use of Axios ensures efficient data fetching from the backend server, keeping the content dynamic and up-to-date.
