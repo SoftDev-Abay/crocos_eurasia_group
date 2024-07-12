@@ -57,7 +57,6 @@ const ContactForm = () => {
 
         const temp = Object.values(error.response.data.errors);
 
-
         toast.error(
           `${
             error.response.data.errors[
@@ -71,7 +70,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="inputs-wrapper">
           <FormInputText
             control={control}
@@ -109,7 +108,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <Button className="submit-button" onClick={handleSubmit(onSubmit)}>
+        <Button type="submit" className="submit-button">
           {t("pages.contact_us.contact_form.button_submit")}
         </Button>
       </form>

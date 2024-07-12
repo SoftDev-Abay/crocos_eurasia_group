@@ -10,10 +10,10 @@ type ButtonProps = {
 const Button = ({ onClick, children, className, ...rest }: ButtonProps) => {
   return (
     <button
-      onClick={onClick}
-      className={`btn ${className}
-    `}
       {...rest}
+      onClick={onClick}
+      className={`btn ${className}`}
+      type={rest.type || "button"}
     >
       {children}
     </button>
